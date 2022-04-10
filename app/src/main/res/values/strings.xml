@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Glovid</string>
+    <string name="heroes_name">Nama Pahlawan</string>
+    <string name="detail">Detail</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+    <string name="with_cardview">with CardView</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
+
+    <string name="kasus">Kasus</string>
+    <string name="dirawat">Dirawat</string>
+    <string name="sembuh">Sembuh</string>
+
+    <string name="indonesia">Indonesia</string>
+    <string name="positif">Positif</string>
+    <string name="meninggal_dunia">Meninggal Dunia</string>
+
+    <string name="global">Global</string>
+    <string name="negara">Negara</string>
+    <string name="terkonfirmasi">Terkonfirmasi</string>
+
+    <string name="greeting">Selamat %1$s</string>
+    <string name="ayo_cek">Ayo Cek Data Terbaru Covid-19 Hari Ini</string>
+
+    <string name="lihat_data_prov">Lihat Data Setiap Provinsi Di Indonesia</string>
+    <string name="lihat_berita_terbaru">Lihat Berita\nTerbaru</string>
+    <string name="ttg_covid_19">Tentang Covid-19 DI Indonesia</string>
+    <string name="lihat_data_vaksin">Lihat Informasi\nTentang Vaksin Covid-19</string>
+    <string name="influence">Ayo cek data terbaru Covid-19 Hari Ini</string>
+    <string name="indo_case_positive">6,012,818</string>
+    <string name="indo_recover_number">5,750,802</string>
+
+    <string name="data_provinsi">Data Provinsi Di Indonesia</string>
+
+    <string name="data_vaksin">Data Vaksinasi Di Indonesia</string>
+    <string name="vaksin">Vaksin</string>
+    <string name="vaksin_pertama">Vaksin Pertama</string>
+    <string name="vaksin_kedua">Vaksin Kedua</string>
+</resources>

@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="3dp">
+
+        <!--    Title-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="283dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/greeting"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="right"
+
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/sherly"
+                    tools:src="@drawable/sherly" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="-10dp">
+
+                <TextView
+                    android:text="@string/influence"
+                    android:textSize="10dp" />
+            </TableRow>
+        </TableLayout>
+
+        <!--        Berita-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@color/dark_background"
+            android:padding="13dip">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="276dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:maxWidth="1000dp"
+                    android:text="@string/lihat_berita_terbaru"
+                    android:textColor="@color/white"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="69dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:src="@drawable/lihat_berita" />
+            </TableRow>
+
+
+        </TableLayout>
+
+        <!--        Indo-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="#0F1528"
+            android:padding="13dip">
+
+            <TableRow>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/indonesia"
+                    tools:src="@drawable/indonesia" />
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/indonesia"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+            </TableRow>
+            <!--        <TableRow-->
+            <!--            android:layout_marginTop="-10dp">-->
+            <!--            <TextView-->
+            <!--                android:text="Update Terakhir 31-03-2022"-->
+            <!--                android:textSize="10dp"-->
+            <!--                android:textColor="@color/white"/>-->
+            <!--        </TableRow>-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:visibility="visible" />
+
+            <TableLayout
+                android:background="#101222"
+                android:padding="10dp">
+
+                <TableRow
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:layout_width="73dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="@string/indo_case_positive"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="96dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="@string/indo_recover_number"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="155,089"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="@string/positif"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="@string/sembuh"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="@string/meninggal_dunia"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+                </TableRow>
+
+            </TableLayout>
+
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TableRow>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:src="@drawable/map_pin" />
+
+                <TextView
+
+                    android:text="Lihat Data Setiap Provinsi Di Indonesia"
+                    android:textSize="15dp" />
+            </TableRow>
+        </TableLayout>
+
+        <!--        Global-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="#0F1528"
+            android:padding="13dip">
+
+            <TableRow>
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/globe"
+                    card_view:tint="@color/white"
+                    tools:src="@drawable/globe" />
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/global"
+                    android:textColor="@color/white"
+                    android:textSize="20dp" />
+            </TableRow>
+            <!--        <TableRow-->
+            <!--            android:layout_marginTop="-10dp">-->
+            <!--            <TextView-->
+            <!--                android:text="Update Terakhir 31-03-2022"-->
+            <!--                android:textSize="10dp"-->
+            <!--                android:textColor="@color/white"/>-->
+            <!--        </TableRow>-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:visibility="visible" />
+
+            <TableLayout
+                android:background="#101222"
+                android:padding="10dp">
+
+                <TableRow
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:layout_width="73dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="6,012,818"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="96dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="5,750,802"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="155,089"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="@string/positif"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="@string/sembuh"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_horizontal"
+                        android:text="@string/meninggal_dunia"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+                </TableRow>
+
+            </TableLayout>
+
+
+        </TableLayout>
+
+        <!--        Vaksin-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="#0F1528"
+            android:padding="13dip">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="277dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:maxWidth="1000dp"
+                    android:text="@string/lihat_data_vaksin"
+                    android:textColor="@color/white"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:src="@drawable/vaksin_covid" />
+            </TableRow>
+
+
+        </TableLayout>
+
+
+    </TableLayout>
+
+
+</LinearLayout>

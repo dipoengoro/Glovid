@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="com.dicoding.myrecyclerview.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/greeting"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/extra_large_margin"
+                android:text="@string/greeting"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/large_font"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/influence"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/influence"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:text="@string/influence"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/greeting" />
+
+<!--            <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                android:id="@+id/profile_image"-->
+<!--                android:layout_width="49dp"-->
+<!--                android:layout_height="42dp"-->
+<!--                android:layout_marginEnd="28dp"-->
+<!--                android:src="@drawable/sherly"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/influence"-->
+<!--                app:layout_constraintDimensionRatio="1:1"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@id/greeting"-->
+<!--                app:layout_constraintVertical_bias="0.0" />-->
+
+            <!--            Berita-->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/news_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/extra_large_margin"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:backgroundTint="@color/dark_background"
+                app:cardCornerRadius="@dimen/corner_radius"
+                app:cardPreventCornerOverlap="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/influence"
+                app:cardElevation="2dp" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/large_padding">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/news_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lihat_berita_terbaru"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_font"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-8dp"
+                        android:text="@string/ttg_covid_19"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/small_font"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/news_title"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/news_image"
+                        android:layout_width="110dp"
+                        android:layout_height="87dp"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintBottom_toBottomOf="@id/news_title"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/news_title"
+                        app:layout_constraintVertical_bias="0.307"
+                        app:srcCompat="@drawable/lihat_berita" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+<!--            Indonesia-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/indo_news_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:backgroundTint="@color/dark_background"
+                app:cardCornerRadius="@dimen/corner_radius"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/news_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/large_padding">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/indo_news_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-15dp"
+                        android:paddingStart="@dimen/extra_large_margin"
+                        android:paddingEnd="@dimen/extra_large_margin"
+                        android:text="@string/indonesia"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_font"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/indo_news_image"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/indo_news_image"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:src="@drawable/indonesia"
+                        app:layout_constraintBottom_toBottomOf="@+id/indo_news_title"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/indo_news_title" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/indo_prov"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-15dp"
+                        android:layout_marginTop="28dp"
+                        android:paddingStart="@dimen/extra_large_margin"
+                        android:paddingEnd="@dimen/extra_large_margin"
+                        android:text="@string/lihat_data_prov"
+                        android:textColor="@color/low_white"
+                        android:textSize="@dimen/small_font"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/indo_news_image"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/line_divider"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/large_margin"
+                        android:background="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/indo_prov" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/indo_info_card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/normal_margin"
+                        android:layout_marginTop="124dp"
+                        android:backgroundTint="@color/dark_blue"
+                        app:cardCornerRadius="@dimen/corner_radius"
+                        app:cardElevation="2dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.644"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/line_divider">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/small_padding">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/indo_number_case_positive"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/indo_case_positive"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    app:layout_constraintEnd_toStartOf="@+id/indo_number_case_recover"
+                                    app:layout_constraintHorizontal_chainStyle="spread"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/indo_number_case_death" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/indo_title_case_positive"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/positif"
+                                    android:textSize="@dimen/small_font"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:textColor="@color/white"
+                                    app:layout_constraintEnd_toEndOf="@+id/indo_number_case_positive"
+                                    app:layout_constraintStart_toStartOf="@+id/indo_number_case_positive"
+                                    app:layout_constraintTop_toBottomOf="@+id/indo_number_case_positive" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/indo_number_case_recover"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/indo_recover_number"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    app:layout_constraintEnd_toStartOf="@+id/indo_number_case_death"
+                                    app:layout_constraintStart_toEndOf="@+id/indo_number_case_positive"
+                                    app:layout_constraintTop_toTopOf="@+id/indo_number_case_death" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/indo_title_case_recover"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/sembuh"
+                                    android:textSize="@dimen/small_font"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                    android:textColor="@color/white"
+                                    app:layout_constraintEnd_toEndOf="@+id/indo_number_case_recover"
+                                    app:layout_constraintStart_toStartOf="@+id/indo_number_case_recover"
+                                    app:layout_constraintTop_toBottomOf="@+id/indo_number_case_recover" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/indo_number_case_death"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="@string/indo_case_positive"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/indo_number_case_recover"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/indo_title_case_death"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/meninggal_dunia"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/small_font"
+                                app:layout_constraintEnd_toEndOf="@+id/indo_number_case_death"
+                                app:layout_constraintStart_toStartOf="@+id/indo_number_case_death"
+                                app:layout_constraintTop_toBottomOf="@+id/indo_number_case_death" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+<!--            Global-->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/global_news_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:backgroundTint="@color/dark_background"
+                app:cardCornerRadius="@dimen/corner_radius"
+                app:cardElevation="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/indo_news_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/small_padding">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_news_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-14dp"
+                        android:paddingStart="@dimen/extra_large_margin"
+                        android:paddingEnd="@dimen/extra_large_margin"
+                        android:text="@string/global"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/normal_font"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/global_news_image"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/global_news_image"
+                        android:layout_width="34dp"
+                        android:layout_height="38dp"
+                        android:backgroundTint="@color/white"
+                        android:src="@drawable/ic_globe"
+                        app:layout_constraintBottom_toBottomOf="@+id/global_news_title"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/global_news_title" />
+
+                    <View
+                        android:id="@+id/global_line_divider"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/large_margin"
+                        android:background="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/global_news_title" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/global_info_card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/normal_margin"
+                        android:layout_marginTop="124dp"
+                        android:backgroundTint="@color/dark_blue"
+                        app:cardCornerRadius="@dimen/corner_radius"
+                        app:cardElevation="2dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.644"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/global_line_divider">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/small_padding">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/global_number_case_positive"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/indo_case_positive"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toStartOf="@+id/global_number_case_recover"
+                                app:layout_constraintHorizontal_chainStyle="spread"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/global_number_case_death" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/global_title_case_positive"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/positif"
+                                android:textSize="@dimen/small_font"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toEndOf="@+id/global_number_case_positive"
+                                app:layout_constraintStart_toStartOf="@+id/global_number_case_positive"
+                                app:layout_constraintTop_toBottomOf="@+id/global_number_case_positive" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/global_number_case_recover"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/indo_recover_number"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toStartOf="@+id/global_number_case_death"
+                                app:layout_constraintStart_toEndOf="@+id/global_number_case_positive"
+                                app:layout_constraintTop_toTopOf="@+id/global_number_case_death" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/global_title_case_recover"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/sembuh"
+                                android:textSize="@dimen/small_font"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toEndOf="@+id/global_number_case_recover"
+                                app:layout_constraintStart_toStartOf="@+id/global_number_case_recover"
+                                app:layout_constraintTop_toBottomOf="@+id/global_number_case_recover" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/global_number_case_death"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/indo_case_positive"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/global_number_case_recover"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/global_title_case_death"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/meninggal_dunia"
+                                android:textSize="@dimen/small_font"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                                android:textColor="@color/white"
+                                app:layout_constraintEnd_toEndOf="@+id/global_number_case_death"
+                                app:layout_constraintStart_toStartOf="@+id/global_number_case_death"
+                                app:layout_constraintTop_toBottomOf="@+id/global_number_case_death" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+<!--            Vaksin-->
+<!--            <com.google.android.material.card.MaterialCardView-->
+<!--                android:id="@+id/vaccine_card"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/normal_margin"-->
+<!--                android:backgroundTint="@color/dark_background"-->
+<!--                app:cardCornerRadius="@dimen/corner_radius"-->
+<!--                app:cardElevation="2dp"-->
+<!--                app:cardPreventCornerOverlap="true"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/global_news_card">-->
+
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:padding="@dimen/large_padding">-->
+
+<!--                    <com.google.android.material.textview.MaterialTextView-->
+<!--                        android:id="@+id/vaccine_title"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/lihat_data_vaksin"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="18sp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                    <com.google.android.material.imageview.ShapeableImageView-->
+<!--                        android:id="@+id/vaccine_image"-->
+<!--                        android:layout_width="87dp"-->
+<!--                        android:layout_height="74dp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@id/vaccine_title"-->
+<!--                        app:layout_constraintDimensionRatio="1:1"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="@id/vaccine_title"-->
+<!--                        app:srcCompat="@drawable/vaksin_covid" />-->
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+<!--            </com.google.android.material.card.MaterialCardView>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
