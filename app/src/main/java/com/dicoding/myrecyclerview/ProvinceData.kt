@@ -4,14 +4,16 @@ import java.lang.reflect.Array.get
 
 object ProvinceData {
     private val provinceNames = arrayOf(
-    "Provinsi Aceh",
-    "Provinsi Bali",
-    "Provinsi Bangka Belitung",
-    "Provinsi Banten",
-    "Provinsi Bengkulu"
+        "Data Provinsi di Indonesia",
+        "Provinsi Aceh",
+        "Provinsi Bali",
+        "Provinsi Bangka Belitung",
+        "Provinsi Banten",
+        "Provinsi Bengkulu"
     )
 
     private val proviceKasus = arrayOf(
+        "",
         "43,459",
         "43,459",
         "43,459",
@@ -20,6 +22,7 @@ object ProvinceData {
     )
 
     private val provinceDirawat = arrayOf(
+        "",
         "1,325",
         "1,325",
         "1,325",
@@ -28,6 +31,7 @@ object ProvinceData {
     )
 
     private val provinceSembuh = arrayOf(
+        "",
         "39,993",
         "39,993",
         "39,993",
@@ -36,6 +40,7 @@ object ProvinceData {
     )
 
     private val provinceImg = intArrayOf(
+        0,
         R.drawable.prov_aceh,
         R.drawable.prov_bali,
         R.drawable.prov_bangka_belitung,

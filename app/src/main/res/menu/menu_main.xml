@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_list"
-        android:title="@string/list"
-        app:showAsAction="never" />
+        android:id="@+id/fragment_home"
+        android:title="@string/home"
+        android:icon="@drawable/home"/>
 
     <item
-        android:id="@+id/action_grid"
-        android:title="@string/grid"
-        app:showAsAction="never" />
+        android:id="@+id/fragment_provinces"
+        android:title="@string/provinsi"
+        android:icon="@drawable/map_pin"/>
 
     <item
-        android:id="@+id/action_cardview"
-        android:title="@string/with_cardview"
-        app:showAsAction="never" />
+        android:id="@+id/fragment_news"
+        android:title="@string/berita"
+        android:icon="@drawable/book_open"/>
 
 </menu>

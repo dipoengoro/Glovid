@@ -37,4 +37,7 @@
     <string name="vaksin">Vaksin</string>
     <string name="vaksin_pertama">Vaksin Pertama</string>
     <string name="vaksin_kedua">Vaksin Kedua</string>
+    <string name="home">Home</string>
+    <string name="provinsi">Provinsi</string>
+    <string name="berita">Berita</string>
 </resources>
