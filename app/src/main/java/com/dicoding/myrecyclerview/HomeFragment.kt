@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -25,8 +26,10 @@ class HomeFragment : Fragment() {
         val current = LocalDateTime.now()
         binding.apply {
             indoNewsCard.setOnClickListener {
-                it.findNavController()
-                    .navigate(HomeFragmentDirections.actionHomeFragmentToProvincesFragment())
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainerView, ProvincesFragment())
+                    .addToBackStack(HomeFragment::class.java.simpleName)
+                    .commit()
             }
             val greetingText = when (current.hour) {
                 in 0..5 -> "Malam"
@@ -39,5 +42,6 @@ class HomeFragment : Fragment() {
         }
         return binding.root
     }
+
 
 }
