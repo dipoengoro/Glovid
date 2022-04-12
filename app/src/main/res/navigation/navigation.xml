@@ -16,4 +16,20 @@
         android:id="@+id/provincesFragment"
         android:name="com.dicoding.myrecyclerview.ProvincesFragment"
         android:label="ProvincesFragment" />
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.dicoding.myrecyclerview.NewsDetailFragment"
+        android:label="NewsDetailFragment" >
+        <argument
+            android:name="news"
+            app:argType="com.dicoding.myrecyclerview.News" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.dicoding.myrecyclerview.NewsFragment"
+        android:label="NewsFragment" >
+        <action
+            android:id="@+id/action_newsFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
 </navigation>
