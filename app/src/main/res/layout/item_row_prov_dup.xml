@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="provinsi"
+            type="com.dicoding.myrecyclerview.provinsi.Provinsi" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent_prov_cons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/province_news_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            android:backgroundTint="@color/dark_background"
+            app:cardCornerRadius="@dimen/corner_radius"
+            app:cardElevation="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/large_padding">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/province_news_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-15dp"
+                    android:paddingStart="@dimen/extra_large_margin"
+                    android:paddingEnd="@dimen/extra_large_margin"
+                    android:text="@{provinsi.name}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/normal_font"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/province_news_image"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/province_news_image"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/indonesia"
+                    app:layout_constraintBottom_toBottomOf="@+id/province_news_title"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/province_news_title" />
+
+                <View
+                    android:id="@+id/province_line_divider"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/large_margin"
+                    android:background="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/province_news_title" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/global_info_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/large_margin"
+                    android:backgroundTint="@color/dark_blue"
+                    app:cardCornerRadius="@dimen/corner_radius"
+                    app:cardElevation="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.644"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/province_line_divider">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/data_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/small_padding">
+
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/province_number_case_positive"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/province_number_case_recover"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/province_number_case_death" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/province_title_case_positive"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/positif"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/small_font"
+                            app:layout_constraintEnd_toEndOf="@+id/province_number_case_positive"
+                            app:layout_constraintStart_toStartOf="@+id/province_number_case_positive"
+                            app:layout_constraintTop_toBottomOf="@+id/province_number_case_positive" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/province_number_case_recover"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/indo_recover_number"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/province_number_case_death"
+                            app:layout_constraintStart_toEndOf="@+id/province_number_case_positive"
+                            app:layout_constraintTop_toTopOf="@+id/province_number_case_death" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/province_title_case_recover"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/sembuh"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/small_font"
+                            app:layout_constraintEnd_toEndOf="@+id/province_number_case_recover"
+                            app:layout_constraintStart_toStartOf="@+id/province_number_case_recover"
+                            app:layout_constraintTop_toBottomOf="@+id/province_number_case_recover" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/province_number_case_death"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/indo_case_positive"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/province_number_case_recover"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/province_title_case_death"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/meninggal_dunia"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/small_font"
+                            app:layout_constraintEnd_toEndOf="@+id/province_number_case_death"
+                            app:layout_constraintStart_toStartOf="@+id/province_number_case_death"
+                            app:layout_constraintTop_toBottomOf="@+id/province_number_case_death" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

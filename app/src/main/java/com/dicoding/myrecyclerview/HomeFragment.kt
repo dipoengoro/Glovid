@@ -7,11 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.dicoding.myrecyclerview.databinding.FragmentHomeBinding
 import java.time.LocalDateTime
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+
+    private lateinit var homeViewModel: HomeViewModel
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -20,6 +23,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         val current = LocalDateTime.now()
         binding.apply {
             indoNewsCard.setOnClickListener {
@@ -28,6 +32,8 @@ class HomeFragment : Fragment() {
                     .addToBackStack(HomeFragment::class.java.simpleName)
                     .commit()
             }
+            viewModel = homeViewModel
+            lifecycleOwner = viewLifecycleOwner
             val greetingText = when (current.hour) {
                 in 0..5 -> "Malam"
                 in 6..12 -> "Pagi"
