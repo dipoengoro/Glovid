@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.myrecyclerview.databinding.FragmentProvincesBinding
+import com.dicoding.myrecyclerview.provinsi.Provinsi
 
 class ProvincesFragment : Fragment() {
     private lateinit var binding: FragmentProvincesBinding
@@ -25,9 +26,9 @@ class ProvincesFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = provinceViewModel
         binding.recyclerViewProvinces.adapter = provincesAdapter
-        provinceViewModel.provinsiItems.observe(viewLifecycleOwner) {
-            provincesAdapter.submitList(it)
-            Log.i("ProvincesFragment", "onCreateView: ${it.size}")
+        provinceViewModel.provinsiItems.observe(viewLifecycleOwner) { list ->
+            provincesAdapter.submitList(list.sortedBy { it.name })
+            Log.i("ProvincesFragment", "onCreateView: ${list.size}")
         }
         return binding.root
     }

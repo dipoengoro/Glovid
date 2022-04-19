@@ -9,89 +9,121 @@
             type="com.dicoding.myrecyclerview.provinsi.Provinsi" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/parent_prov_cons"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/dark_background"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="4dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
 
-        <TextView
-            android:id="@+id/text_prov_name"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parent_prov_cons"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{provinsi.name}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:padding="16dp">
 
-        <View
-            android:id="@+id/divider_prov"
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_prov_name" />
+            <TextView
+                android:id="@+id/text_prov_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="@{provinsi.name}"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_prov_kasus"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@{String.valueOf(provinsi.kasus)}"
-            app:layout_constraintEnd_toStartOf="@+id/text_prov_sembuh"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider_prov" />
+            <View
+                android:id="@+id/divider_prov"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/white"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_prov_name" />
 
-        <TextView
-            android:id="@+id/text_prov_sembuh"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@{String.valueOf(provinsi.sembuh)}"
-            app:layout_constraintEnd_toStartOf="@+id/text_prov_meninggal"
-            app:layout_constraintStart_toEndOf="@id/text_prov_kasus"
-            app:layout_constraintTop_toBottomOf="@+id/divider_prov" />
+            <TextView
+                android:id="@+id/text_prov_kasus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:numberText="@{provinsi.kasus}"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/text_prov_sembuh"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_prov" />
 
-        <TextView
-            android:id="@+id/text_prov_meninggal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@{String.valueOf(provinsi.meninggal)}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_prov_sembuh"
-            app:layout_constraintTop_toBottomOf="@+id/divider_prov" />
+            <TextView
+                android:id="@+id/text_prov_sembuh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:numberText="@{provinsi.sembuh}"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/text_prov_meninggal"
+                app:layout_constraintStart_toEndOf="@id/text_prov_kasus"
+                app:layout_constraintTop_toBottomOf="@+id/divider_prov" />
 
-        <TextView
-            android:id="@+id/text_prov_kasus_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/kasus"
-            app:layout_constraintEnd_toStartOf="@+id/text_prov_sembuh"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_prov_kasus" />
+            <TextView
+                android:id="@+id/text_prov_meninggal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:numberText="@{provinsi.meninggal}"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_prov_sembuh"
+                app:layout_constraintTop_toBottomOf="@+id/divider_prov" />
 
-        <TextView
-            android:id="@+id/text_prov_sembuh_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/sembuh"
-            app:layout_constraintEnd_toStartOf="@+id/text_prov_meninggal_title"
-            app:layout_constraintStart_toEndOf="@id/text_prov_kasus_title"
-            app:layout_constraintTop_toBottomOf="@+id/text_prov_kasus" />
+            <TextView
+                android:id="@+id/text_prov_kasus_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/kasus"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/text_prov_sembuh"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_prov_kasus" />
 
-        <TextView
-            android:id="@+id/text_prov_meninggal_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/meninggal_dunia"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_prov_sembuh_title"
-            app:layout_constraintTop_toBottomOf="@+id/text_prov_kasus" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/text_prov_sembuh_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/sembuh"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/text_prov_meninggal_title"
+                app:layout_constraintStart_toEndOf="@id/text_prov_kasus_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_prov_kasus" />
+
+            <TextView
+                android:id="@+id/text_prov_meninggal_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/meninggal_dunia"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_prov_sembuh_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_prov_kasus" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>
