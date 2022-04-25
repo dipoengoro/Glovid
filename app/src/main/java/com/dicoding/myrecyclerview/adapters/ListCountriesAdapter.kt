@@ -17,11 +17,14 @@ import kotlinx.coroutines.withContext
 private const val ITEM_VIEW_TYPE_HEADER = 0
 private const val ITEM_VIEW_TYPE_ITEM = 1
 
+/*
+ * Ini adalah class ListCountriesAdapter yang mengimplementasikan ListAdapter<Country, RecyclerView.ViewHolder>
+ */
 class ListCountriesAdapter :
     ListAdapter<DataItemCountries, RecyclerView.ViewHolder>(CountriesDiffCallback) {
 
-
     private val adapterScope = CoroutineScope(Dispatchers.Default)
+    // Ini adalah fungsi untuk menggabungkan list yang didapat dari api dan headernya
     fun addCountries(list: List<Country>?) {
         adapterScope.launch {
             val items = when (list) {
@@ -33,12 +36,13 @@ class ListCountriesAdapter :
             }
         }
     }
-
+    // Method ini digunakan untuk memisahkan antara header dan item
     override fun getItemViewType(position: Int): Int = when (getItem(position)) {
         is DataItemCountries.CountryHeader -> ITEM_VIEW_TYPE_HEADER
         is DataItemCountries.CountryItem -> ITEM_VIEW_TYPE_ITEM
     }
 
+    // Ini adalah method yang digunakan untuk mengatur viewholder untuk item dan header
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         when (viewType) {
             ITEM_VIEW_TYPE_HEADER -> HeaderCountryViewHolder.from(parent)
@@ -46,6 +50,7 @@ class ListCountriesAdapter :
             else -> throw ClassCastException("Unknown viewType $viewType")
         }
 
+    // Ini adalah method yang digunakan untuk mengirimkan data ke viewholder untuk ditampilkan
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
         when (holder) {
             is CountryViewHolder -> {
@@ -55,6 +60,7 @@ class ListCountriesAdapter :
             else -> throw ClassCastException("Unknown view holder")
         }
 
+    // Ini adalah object yang digunakan untuk efisiensi penggunaan memory
     companion object CountriesDiffCallback : DiffUtil.ItemCallback<DataItemCountries>() {
         override fun areItemsTheSame(
             oldItem: DataItemCountries,
@@ -67,8 +73,10 @@ class ListCountriesAdapter :
         ): Boolean = oldItem == newItem
     }
 
+    // Ini adalah class yang digunakan untuk menampilkan item country
     class CountryViewHolder(private val binding: ItemCountryBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        // Ini adalah function untuk mengirimkan data ke item_country.xml
         fun bind(item: Country) {
             binding.apply {
                 country = item
@@ -88,6 +96,7 @@ class ListCountriesAdapter :
         }
     }
 
+    // Ini adalah class yang digunakan untuk menampilkan header
     class HeaderCountryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         companion object {
             fun from(parent: ViewGroup) : HeaderCountryViewHolder =
@@ -102,6 +111,7 @@ class ListCountriesAdapter :
     }
 }
 
+// Ini adalah class yang digunakan untuk melabeli data yang akan ditampilkan
 sealed class DataItemCountries {
     data class CountryItem(val country: Country) : DataItemCountries() {
         override val id: Long

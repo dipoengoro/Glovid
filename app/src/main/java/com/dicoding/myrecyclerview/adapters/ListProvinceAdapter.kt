@@ -17,6 +17,7 @@ import kotlinx.coroutines.withContext
 private const val ITEM_VIEW_TYPE_HEADER = 0
 private const val ITEM_VIEW_TYPE_ITEM = 1
 
+// Kurang lebih sama seperti ListCountriesAdapter
 class ListProvinceAdapter :
     ListAdapter<DataItem, RecyclerView.ViewHolder>(DiffCallback) {
 

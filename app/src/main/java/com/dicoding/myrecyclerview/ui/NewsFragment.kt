@@ -1,7 +1,6 @@
 package com.dicoding.myrecyclerview.ui
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -15,7 +14,6 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import com.dicoding.myrecyclerview.R
-import com.dicoding.myrecyclerview.adapters.NewsAdapter
 import com.dicoding.myrecyclerview.databinding.FragmentNewsBinding
 
 
