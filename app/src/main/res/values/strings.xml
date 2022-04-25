@@ -43,4 +43,5 @@
     <string name="selengkapnya">selengkapnya</string>
     <string name="daftar_provinsi">Daftar Provinsi</string>
     <string name="daftar_negara">Daftar Negara</string>
+    <string name="default_url">https://covid19.go.id/artikel-list/berita</string>
 </resources>

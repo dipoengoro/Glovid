@@ -294,15 +294,18 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:maxLines="1"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
                         android:textColor="@color/white"
-                        app:autoSizeMinTextSize="12sp"
+                        android:maxLines="1"
+                        android:autoSizeMinTextSize="11sp"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeStepGranularity="1sp"
                         app:layout_constraintEnd_toStartOf="@+id/global_number_case_recover"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/global_number_case_death"
                         app:layout_constraintVertical_chainStyle="spread"
-                        app:numberText="@{viewModel.globalData.global.confirmed}" />
+                        app:numberText="@{viewModel.globalData.global.confirmed}"
+                        tools:targetApi="o" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/global_title_case_positive"
