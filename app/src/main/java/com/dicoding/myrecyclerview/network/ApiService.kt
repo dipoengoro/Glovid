@@ -8,6 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
+// Ini adalah api yang digunakan untuk mengambil data nasional
 private const val BASE_URL = "https://apicovid19indonesia-v2.vercel.app/api/"
 
 private val moshi = Moshi.Builder()
@@ -20,9 +21,11 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface ApiService {
+    // Ini adalah function untuk mengambil data Indonesia
     @GET("indonesia")
     suspend fun getUpdateData(): Indonesia
 
+    // Ini adalah function untuk mengambil data Provinsi
     @GET("indonesia/provinsi")
     suspend fun getProvData(): List<Provinsi>
 }

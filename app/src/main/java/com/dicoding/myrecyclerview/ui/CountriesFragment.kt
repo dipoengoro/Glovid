@@ -19,7 +19,9 @@ class CountriesFragment : Fragment() {
         val binding = FragmentCountriesBinding.inflate(inflater, container, false)
         val countryViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
         binding.apply {
+            // Set the lifecycleOwner so DataBinding can observe LiveData
             lifecycleOwner = this@CountriesFragment
+            // Set the ViewModel for DataBinding - this allows the bound layout access to all of the data in the ViewModel
             viewModel = countryViewModel
             return root
         }

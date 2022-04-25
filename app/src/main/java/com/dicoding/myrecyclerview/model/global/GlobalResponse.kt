@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
 
+// Ini adalah class untuk parsing data dari JSON
 @Parcelize
 data class GlobalResponse(
     @Json(name = "ID")

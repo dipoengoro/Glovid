@@ -27,20 +27,26 @@ class NewsFragment : Fragment() {
     ): View {
         binding = FragmentNewsBinding.inflate(inflater, container, false)
         binding.apply {
+            // Set the WebViewClient
             webview.apply {
                 loadUrl(getString(R.string.default_url))
                 settings.javaScriptEnabled = true
                 addJavascriptInterface(WebAppInterface(requireContext()), "Android")
                 webViewClient = MyWebViewClient(requireContext())
             }
+            // Set the arrow back button
             arrowBack.setOnClickListener { if (webview.canGoBack()) webview.goBack() }
+            // Set the arrow forward button
             arrowForward.setOnClickListener { if (webview.canGoForward()) webview.goForward() }
+            // Implement the status of progress bar
             pageLoadStatus()
+            // Implement the progressions of progress bar
             updateProgress()
             return root
         }
     }
 
+    // Set the status of progress bar
     private fun pageLoadStatus() {
         binding.apply {
             webview.webViewClient = object : WebViewClient() {
@@ -60,6 +66,7 @@ class NewsFragment : Fragment() {
         }
     }
 
+    // Set the progressions of progress bar
     private fun updateProgress() {
         binding.apply {
             webview.webChromeClient = object: WebChromeClient() {
@@ -73,14 +80,15 @@ class NewsFragment : Fragment() {
 }
 
 class WebAppInterface(private val mContext: Context) {
-
-    /** Show a toast from the web page  */
+    /** Show a toast from the web page
+     * Ini aku baca bisa buat kalo webnya itu ngeluarin alert jadi bisa handle, tapi belom kucoba */
     @JavascriptInterface
     fun showToast(toast: String) {
         Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show()
     }
 }
 
+// Set the WebViewClient to prevent opening browser when click link with same host
 class MyWebViewClient(private val context: Context) : WebViewClient() {
     override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
         if (Uri.parse(request?.url.toString()).host == "covid19.go.id") {

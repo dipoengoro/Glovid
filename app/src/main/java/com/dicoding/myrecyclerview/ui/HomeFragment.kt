@@ -28,12 +28,14 @@ class HomeFragment : Fragment() {
         homeViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
         val current = LocalDateTime.now()
         binding.apply {
+            // Set click untuk Indo card
             indoNewsCard.setOnClickListener {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView, ProvincesFragment())
                     .addToBackStack(HomeFragment::class.java.simpleName)
                     .commit()
             }
+            // Set click untuk Global card
             globalNewsCard.setOnClickListener {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView, CountriesFragment())

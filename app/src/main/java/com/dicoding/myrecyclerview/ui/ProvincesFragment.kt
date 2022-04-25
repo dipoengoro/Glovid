@@ -9,6 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.myrecyclerview.databinding.FragmentProvincesBinding
 import com.dicoding.myrecyclerview.viewmodel.MainViewModel
 
+// Nothing Special Here
+// Like the others
 class ProvincesFragment : Fragment() {
     private lateinit var binding: FragmentProvincesBinding
 

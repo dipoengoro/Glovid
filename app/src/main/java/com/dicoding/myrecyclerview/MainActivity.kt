@@ -13,13 +13,17 @@ import com.dicoding.myrecyclerview.ui.ProvincesFragment
 import com.dicoding.myrecyclerview.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.Theme_MyRecyclerView)
+        // Membuat viewmodelnya aktif dan segera run funsi yang ada di mainviewmodel init block
         ViewModelProvider(this)[MainViewModel::class.java]
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.bottomNavigation.apply {
+            // handle bottomnavigation click
             setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.fragment_home -> setCurrentFragment(HomeFragment())
@@ -30,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // fungsi untuk mengatur fragment yang akan ditampilkan
     private fun setCurrentFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView, fragment)
@@ -37,7 +42,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // handle back button
     override fun onBackPressed() {
+        // if back button is pressed in news fragment then go to home fragment
         if (binding.bottomNavigation.selectedItemId == R.id.fragment_news) {
             setCurrentFragment(HomeFragment())
             binding.bottomNavigation.selectedItemId = R.id.fragment_home

@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
 
+// Ini adalah class untuk model data provinsi
 @Parcelize
 data class Provinsi(
     @Json(name = "provinsi")
