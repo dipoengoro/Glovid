@@ -1,8 +1,9 @@
-package com.dicoding.myrecyclerview
+package com.dicoding.myrecyclerview.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.dicoding.myrecyclerview.model.News
 import com.dicoding.myrecyclerview.databinding.ItemNewsBinding
 
 class NewsAdapter(

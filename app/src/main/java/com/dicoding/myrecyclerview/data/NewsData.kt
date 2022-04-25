@@ -1,4 +1,7 @@
-package com.dicoding.myrecyclerview
+package com.dicoding.myrecyclerview.data
+
+import com.dicoding.myrecyclerview.model.News
+import com.dicoding.myrecyclerview.R
 
 object NewsData {
 

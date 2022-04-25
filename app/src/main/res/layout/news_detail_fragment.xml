@@ -10,7 +10,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context="com.dicoding.myrecyclerview.NewsDetailFragment">
+            tools:context="com.dicoding.myrecyclerview.ui.NewsDetailFragment">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/news_detail_image"

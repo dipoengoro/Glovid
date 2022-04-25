@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
-            type="com.dicoding.myrecyclerview.HomeViewModel" />
+            type="com.dicoding.myrecyclerview.viewmodel.MainViewModel" />
     </data>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.dicoding.myrecyclerview.HomeFragment">
+        tools:context="com.dicoding.myrecyclerview.ui.HomeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -52,11 +53,11 @@
                 android:layout_marginEnd="@dimen/normal_margin"
                 android:backgroundTint="@color/dark_background"
                 app:cardCornerRadius="@dimen/corner_radius"
+                app:cardElevation="2dp"
                 app:cardPreventCornerOverlap="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/influence"
-                app:cardElevation="2dp" >
+                app:layout_constraintTop_toBottomOf="@+id/influence">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -70,9 +71,9 @@
                         android:text="@string/lihat_berita_terbaru"
                         android:textColor="@color/white"
                         android:textSize="@dimen/normal_font"
+                        app:layout_constraintEnd_toStartOf="@id/news_image"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/news_image" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/news_influence"
@@ -82,8 +83,8 @@
                         android:text="@string/ttg_covid_19"
                         android:textColor="@color/white"
                         android:textSize="@dimen/small_font"
-                        app:layout_constraintEnd_toStartOf="@+id/news_image"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/news_image"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/news_title" />
 
@@ -99,7 +100,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
-<!--            Indonesia-->
+            <!--            Indonesia-->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/indo_news_card"
                 android:layout_width="0dp"
@@ -141,22 +142,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/indo_news_title" />
 
-<!--                    <com.google.android.material.textview.MaterialTextView-->
-<!--                        android:id="@+id/indo_prov"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="-15dp"-->
-<!--                        android:layout_marginTop="28dp"-->
-<!--                        android:paddingStart="@dimen/extra_large_margin"-->
-<!--                        android:paddingEnd="@dimen/extra_large_margin"-->
-<!--                        android:text="@string/lihat_data_prov"-->
-<!--                        android:textColor="@color/low_white"-->
-<!--                        android:textSize="@dimen/small_font"-->
-<!--                        app:layout_constraintEnd_toEndOf="parent"-->
-<!--                        app:layout_constraintHorizontal_bias="0.0"-->
-<!--                        app:layout_constraintStart_toEndOf="@+id/indo_news_image"-->
-<!--                        app:layout_constraintTop_toTopOf="parent" />-->
-
                     <View
                         android:id="@+id/line_divider"
                         android:layout_width="0dp"
@@ -167,114 +152,91 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/indo_news_title" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/indo_info_card"
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/indo_number_case_positive"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/normal_margin"
-                        android:layout_marginTop="124dp"
-                        android:backgroundTint="@color/dark_blue"
-                        app:cardCornerRadius="@dimen/corner_radius"
-                        app:cardElevation="2dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.644"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toStartOf="@+id/indo_number_case_recover"
+                        app:layout_constraintHorizontal_chainStyle="spread"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/line_divider">
+                        app:layout_constraintTop_toTopOf="@+id/indo_number_case_death"
+                        app:numberText="@{viewModel.indonesiaTotal.positif}" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="@dimen/small_padding">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/indo_title_case_positive"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/kasus"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/small_font"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/indo_number_case_positive"
+                        app:layout_constraintStart_toStartOf="@+id/indo_number_case_positive"
+                        app:layout_constraintTop_toBottomOf="@+id/indo_number_case_positive" />
 
-                                <com.google.android.material.textview.MaterialTextView
-                                    android:id="@+id/indo_number_case_positive"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@{viewModel.jumlahPositif}"
-                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                                    android:textColor="@color/white"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toStartOf="@+id/indo_number_case_recover"
-                                    app:layout_constraintHorizontal_chainStyle="spread"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/indo_number_case_death" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/indo_number_case_recover"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toStartOf="@+id/indo_number_case_death"
+                        app:layout_constraintStart_toEndOf="@+id/indo_number_case_positive"
+                        app:layout_constraintTop_toTopOf="@+id/indo_number_case_death"
+                        app:numberText="@{viewModel.indonesiaTotal.sembuh}" />
 
-                                <com.google.android.material.textview.MaterialTextView
-                                    android:id="@+id/indo_title_case_positive"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@string/positif"
-                                    android:textSize="@dimen/small_font"
-                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                                    android:textColor="@color/white"
-                                    app:layout_constraintEnd_toEndOf="@+id/indo_number_case_positive"
-                                    app:layout_constraintStart_toStartOf="@+id/indo_number_case_positive"
-                                    app:layout_constraintTop_toBottomOf="@+id/indo_number_case_positive" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/indo_title_case_recover"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/sembuh"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/small_font"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/indo_number_case_recover"
+                        app:layout_constraintStart_toStartOf="@+id/indo_number_case_recover"
+                        app:layout_constraintTop_toBottomOf="@+id/indo_number_case_recover" />
 
-                                <com.google.android.material.textview.MaterialTextView
-                                    android:id="@+id/indo_number_case_recover"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@{viewModel.jumlahSembuh}"
-                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                                    android:textColor="@color/white"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toStartOf="@+id/indo_number_case_death"
-                                    app:layout_constraintStart_toEndOf="@+id/indo_number_case_positive"
-                                    app:layout_constraintTop_toTopOf="@+id/indo_number_case_death" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/indo_number_case_death"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/large_margin"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/indo_number_case_recover"
+                        app:layout_constraintTop_toTopOf="@+id/line_divider"
+                        app:numberText="@{viewModel.indonesiaTotal.meninggal}" />
 
-                                <com.google.android.material.textview.MaterialTextView
-                                    android:id="@+id/indo_title_case_recover"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@string/sembuh"
-                                    android:textSize="@dimen/small_font"
-                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                                    android:textColor="@color/white"
-                                    app:layout_constraintEnd_toEndOf="@+id/indo_number_case_recover"
-                                    app:layout_constraintStart_toStartOf="@+id/indo_number_case_recover"
-                                    app:layout_constraintTop_toBottomOf="@+id/indo_number_case_recover" />
-
-                                <com.google.android.material.textview.MaterialTextView
-                                    android:id="@+id/indo_number_case_death"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="@{viewModel.jumlahMeninggal}"
-                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                                    android:textColor="@color/white"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toEndOf="@+id/indo_number_case_recover"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            <com.google.android.material.textview.MaterialTextView
-                                android:id="@+id/indo_title_case_death"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/meninggal_dunia"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/small_font"
-                                app:layout_constraintEnd_toEndOf="@+id/indo_number_case_death"
-                                app:layout_constraintStart_toStartOf="@+id/indo_number_case_death"
-                                app:layout_constraintTop_toBottomOf="@+id/indo_number_case_death" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                    </com.google.android.material.card.MaterialCardView>
-
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/indo_title_case_death"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/meninggal_dunia"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/small_font"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/indo_number_case_death"
+                        app:layout_constraintStart_toStartOf="@+id/indo_number_case_death"
+                        app:layout_constraintTop_toBottomOf="@+id/indo_number_case_death" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
-<!--            Global-->
+            <!--            Global-->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/global_news_card"
                 android:layout_width="0dp"
@@ -327,155 +289,90 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/global_news_title" />
 
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/global_info_card"
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_number_case_positive"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/normal_margin"
-                        android:layout_marginTop="124dp"
-                        android:backgroundTint="@color/dark_blue"
-                        app:cardCornerRadius="@dimen/corner_radius"
-                        app:cardElevation="2dp"
-                        android:layout_marginBottom="@dimen/extra_large_margin"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        android:textColor="@color/white"
+                        app:autoSizeMinTextSize="12sp"
+                        app:layout_constraintEnd_toStartOf="@+id/global_number_case_recover"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/global_line_divider">
+                        app:layout_constraintTop_toTopOf="@+id/global_number_case_death"
+                        app:layout_constraintVertical_chainStyle="spread"
+                        app:numberText="@{viewModel.globalData.global.confirmed}" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="@dimen/small_padding">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_title_case_positive"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/kasus"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/small_font"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/global_number_case_positive"
+                        app:layout_constraintStart_toStartOf="@+id/global_number_case_positive"
+                        app:layout_constraintTop_toBottomOf="@+id/global_number_case_positive" />
 
-                            <com.google.android.material.textview.MaterialTextView
-                                android:id="@+id/global_number_case_positive"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/indo_case_positive"
-                                android:textStyle="bold"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                                android:textColor="@color/white"
-                                app:layout_constraintEnd_toStartOf="@+id/global_number_case_recover"
-                                app:layout_constraintHorizontal_chainStyle="spread"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/global_number_case_death" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_number_case_recover"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toStartOf="@+id/global_number_case_death"
+                        app:layout_constraintStart_toEndOf="@+id/global_number_case_positive"
+                        app:layout_constraintTop_toTopOf="@+id/global_number_case_death"
+                        app:numberText="@{viewModel.globalData.global.recovered}" />
 
-                            <com.google.android.material.textview.MaterialTextView
-                                android:id="@+id/global_title_case_positive"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/positif"
-                                android:textSize="@dimen/small_font"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                                android:textColor="@color/white"
-                                app:layout_constraintEnd_toEndOf="@+id/global_number_case_positive"
-                                app:layout_constraintStart_toStartOf="@+id/global_number_case_positive"
-                                app:layout_constraintTop_toBottomOf="@+id/global_number_case_positive" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_title_case_recover"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/sembuh"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/small_font"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/global_number_case_recover"
+                        app:layout_constraintStart_toStartOf="@+id/global_number_case_recover"
+                        app:layout_constraintTop_toBottomOf="@+id/global_number_case_recover" />
 
-                            <com.google.android.material.textview.MaterialTextView
-                                android:id="@+id/global_number_case_recover"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/indo_recover_number"
-                                android:textStyle="bold"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                                android:textColor="@color/white"
-                                app:layout_constraintEnd_toStartOf="@+id/global_number_case_death"
-                                app:layout_constraintStart_toEndOf="@+id/global_number_case_positive"
-                                app:layout_constraintTop_toTopOf="@+id/global_number_case_death" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_number_case_death"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/large_margin"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        android:textColor="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/global_number_case_recover"
+                        app:layout_constraintTop_toTopOf="@+id/global_line_divider"
+                        app:numberText="@{viewModel.globalData.global.deaths}" />
 
-                            <com.google.android.material.textview.MaterialTextView
-                                android:id="@+id/global_title_case_recover"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/sembuh"
-                                android:textSize="@dimen/small_font"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                                android:textColor="@color/white"
-                                app:layout_constraintEnd_toEndOf="@+id/global_number_case_recover"
-                                app:layout_constraintStart_toStartOf="@+id/global_number_case_recover"
-                                app:layout_constraintTop_toBottomOf="@+id/global_number_case_recover" />
-
-                            <com.google.android.material.textview.MaterialTextView
-                                android:id="@+id/global_number_case_death"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/indo_case_positive"
-                                android:textStyle="bold"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                                android:textColor="@color/white"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/global_number_case_recover"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <com.google.android.material.textview.MaterialTextView
-                                android:id="@+id/global_title_case_death"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/meninggal_dunia"
-                                android:textSize="@dimen/small_font"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                                android:textColor="@color/white"
-                                app:layout_constraintEnd_toEndOf="@+id/global_number_case_death"
-                                app:layout_constraintStart_toStartOf="@+id/global_number_case_death"
-                                app:layout_constraintTop_toBottomOf="@+id/global_number_case_death" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                    </com.google.android.material.card.MaterialCardView>
-
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/global_title_case_death"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/meninggal_dunia"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/small_font"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/global_number_case_death"
+                        app:layout_constraintStart_toStartOf="@+id/global_number_case_death"
+                        app:layout_constraintTop_toBottomOf="@+id/global_number_case_death" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
-<!--            Vaksin-->
-<!--            <com.google.android.material.card.MaterialCardView-->
-<!--                android:id="@+id/vaccine_card"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="@dimen/normal_margin"-->
-<!--                android:backgroundTint="@color/dark_background"-->
-<!--                app:cardCornerRadius="@dimen/corner_radius"-->
-<!--                app:cardElevation="2dp"-->
-<!--                app:cardPreventCornerOverlap="true"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/global_news_card">-->
-
-<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:padding="@dimen/large_padding">-->
-
-<!--                    <com.google.android.material.textview.MaterialTextView-->
-<!--                        android:id="@+id/vaccine_title"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="@string/lihat_data_vaksin"-->
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="18sp"-->
-<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                        app:layout_constraintStart_toStartOf="parent"-->
-<!--                        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--                    <com.google.android.material.imageview.ShapeableImageView-->
-<!--                        android:id="@+id/vaccine_image"-->
-<!--                        android:layout_width="87dp"-->
-<!--                        android:layout_height="74dp"-->
-<!--                        app:layout_constraintBottom_toBottomOf="@id/vaccine_title"-->
-<!--                        app:layout_constraintDimensionRatio="1:1"-->
-<!--                        app:layout_constraintEnd_toEndOf="parent"-->
-<!--                        app:layout_constraintTop_toTopOf="@id/vaccine_title"-->
-<!--                        app:srcCompat="@drawable/vaksin_covid" />-->
-<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
-<!--            </com.google.android.material.card.MaterialCardView>-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

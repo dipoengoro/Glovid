@@ -14,7 +14,7 @@
 
     <string name="indonesia">Indonesia</string>
     <string name="positif">Positif</string>
-    <string name="meninggal_dunia">Meninggal Dunia</string>
+    <string name="meninggal_dunia">Meninggal</string>
 
     <string name="global">Global</string>
     <string name="negara">Negara</string>
@@ -41,4 +41,6 @@
     <string name="provinsi">Provinsi</string>
     <string name="berita">Berita</string>
     <string name="selengkapnya">selengkapnya</string>
+    <string name="daftar_provinsi">Daftar Provinsi</string>
+    <string name="daftar_negara">Daftar Negara</string>
 </resources>

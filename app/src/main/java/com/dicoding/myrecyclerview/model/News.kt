@@ -1,4 +1,4 @@
-package com.dicoding.myrecyclerview
+package com.dicoding.myrecyclerview.model
 
 import java.io.Serializable
 

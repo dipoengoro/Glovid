@@ -8,11 +8,6 @@
         android:icon="@drawable/home"/>
 
     <item
-        android:id="@+id/fragment_provinces"
-        android:title="@string/provinsi"
-        android:icon="@drawable/map_pin"/>
-
-    <item
         android:id="@+id/fragment_news"
         android:title="@string/berita"
         android:icon="@drawable/book_open"/>

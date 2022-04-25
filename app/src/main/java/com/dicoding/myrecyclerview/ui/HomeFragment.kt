@@ -1,4 +1,4 @@
-package com.dicoding.myrecyclerview
+package com.dicoding.myrecyclerview.ui
 
 import android.os.Build
 import android.os.Bundle
@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.dicoding.myrecyclerview.R
 import com.dicoding.myrecyclerview.databinding.FragmentHomeBinding
+import com.dicoding.myrecyclerview.viewmodel.MainViewModel
 import java.time.LocalDateTime
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var homeViewModel: MainViewModel
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -23,12 +25,18 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        homeViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
         val current = LocalDateTime.now()
         binding.apply {
             indoNewsCard.setOnClickListener {
                 requireActivity().supportFragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainerView, ProvincesFragment())
+                    .addToBackStack(HomeFragment::class.java.simpleName)
+                    .commit()
+            }
+            globalNewsCard.setOnClickListener {
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainerView, CountriesFragment())
                     .addToBackStack(HomeFragment::class.java.simpleName)
                     .commit()
             }

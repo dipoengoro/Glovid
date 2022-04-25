@@ -1,4 +1,4 @@
-package com.dicoding.myrecyclerview.indonesia
+package com.dicoding.myrecyclerview.model.indonesia
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
